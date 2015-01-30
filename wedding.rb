@@ -42,21 +42,35 @@ def joes_last_name(people)
 end
 
 def last_names(people)
+  last_names = []
+  people.keys.each do |person|
+    last_names.push(people[person][:last_name])
+  end
+  last_names
 end
 
 def first_fav_genre(people)
+  first_fav_genre = []
+  people.keys.each do |person|
+    first_fav_genre.push(people[person][:preferences][:favorite_genres][0])
+  end
+  first_fav_genre
 end
 
 def joes_neighbor(people)
+  people[people["joe"][:sitting_next_to].to_s][:last_name]
 end
 
 def sues_meal(people)
+  people["sue"][:preferences][:meal]
 end
 
 def joes_first_letter_date(people)
+  people["joe"][:correspondence].first[:date]
 end
 
 def sues_last_letter_desc(people)
+  people["sue"][:correspondence].last[:description]
 end
 
 puts "*"*80
